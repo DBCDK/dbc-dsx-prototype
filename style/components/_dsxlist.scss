@@ -1,0 +1,21 @@
+.dsx-list-item {
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  color: #222;
+  cursor: pointer;
+  text-transform: capitalize;
+  &.selected {
+    color: #ccc;
+  }
+  .title {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+
+.dsx-selected .dsx-list-item.selected {
+  color: #222;
+}

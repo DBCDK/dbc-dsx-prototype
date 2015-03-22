@@ -1,0 +1,50 @@
+{
+  "name": "dsx-prototype",
+  "version": "1.0.0",
+  "description": "prototype for the dsx project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:watch": "webpack --progress --colors --watch -d",
+    "css:watch": "node-sass -w -o public --include-path style/components --output-style compressed --source-map public/main.css.map  style/main.scss main.css",
+    "css:build": "node-sass -o public --include-path style/components --output-style compressed style/main.scss main.css",
+    "serve": "supervisor -w client,views,lib,routes,services index.js",
+    "build": "webpack --progress --colors --optimize-minimize",
+    "dev": "parallelshell \"npm run serve -s\" \"npm run css:build\" \"npm run start:watch -s\" \"npm run css:watch -s\""
+  },
+  "keywords": [
+    "data-science",
+    "machine-learning",
+    "react",
+    "recommendations"
+  ],
+  "author": "team UX",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^4.7.16",
+    "cache-manager": "^0.18.0",
+    "es6-promise": "^2.0.1",
+    "express": "^4.12.3",
+    "express-handlebars": "^1.2.2",
+    "jsonpath-object-transform": "https://github.com/vibjerg/jsonpath-object-transform/archive/1.0.5.tar.gz",
+    "lodash": "^3.5.0",
+    "node-rest-client": "^1.4.4",
+    "react": "^0.13.1",
+    "react-loader": "^1.2.0",
+    "reflux": "^0.2.7",
+    "soap": "^0.8.0",
+    "socket.io": "^1.3.5",
+    "socket.io-client": "^1.3.5"
+  },
+  "devDependencies": {
+    "babel-core": "^4.6.3",
+    "babel-jest": "^4.0.0",
+    "babel-loader": "^4.0.0",
+    "jest-cli": "^0.4.0",
+    "jsx-loader": "^0.12.2",
+    "node-sass": "^2.0.1",
+    "parallelshell": "^1.0.4",
+    "watch": "^0.14.0",
+    "webpack": "^1.6.0"
+  }
+}
