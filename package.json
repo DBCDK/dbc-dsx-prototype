@@ -23,6 +23,7 @@
   "dependencies": {
     "babel": "^4.7.16",
     "cache-manager": "^0.18.0",
+    "dbc-node-services": "git://github.com/DBCDK/dbc-node-services#develop",
     "es6-promise": "^2.0.1",
     "express": "^4.12.3",
     "express-handlebars": "^1.2.2",

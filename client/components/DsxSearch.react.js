@@ -5,7 +5,6 @@ var _ = require('lodash'),
     Actions = require('../actions/Actions'),
     Loader = require('react-loader'),
     SearchField = require('../components/SearchField');
-var Work = require('../components/Work');
 
 /**
  * Main search module
@@ -158,7 +157,7 @@ var DsxListItem = React.createClass({
   render : function() {
     var item = this.props.element;
      return (
-      <div className={"dsx-list-item" + (item.selected && ' selected' || '')} onClick={() => this.props._onClick(item)} >
+      <div className={"dsx-list-item" + (item.selected && ' selected' || '')} onClick={() => this.props.onClick(item)} >
       <span className="title">{item.title.replace(/-/g, ' ')}</span>
       <span className="author">{item.creator[0].replace(/-/g, ' ')}</span>
      </div>)

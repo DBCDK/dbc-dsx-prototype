@@ -8,7 +8,7 @@ var exphbs = require('express-handlebars');
 var app = express();
 var server = require('http').Server(app);
 var socket = io(server);
-var services = require('./services');
+var services = require('dbc-node-services');
 var routes = require('./routes/routes');
 
 //var authentication = require('./lib/authentication/authentication');
