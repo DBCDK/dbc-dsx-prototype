@@ -21,7 +21,6 @@ module.exports = {
   entry: {
     admin: './client/entry/admin.entry.js',
   },
-  devtool: "source-map",
   output: {
     path: __dirname + '/public',
     filename: '[name].js'
