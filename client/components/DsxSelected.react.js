@@ -8,11 +8,29 @@ var DsxListItem = require('./DsxListItem.react');
 var DsxSelected = React.createClass({
 
   getInitialState: function () {
-    return {json : false};
+    return {
+      json : false,
+      elements : JSON.stringify(this.props.elements, null, 3)
+    };
+  },
+
+  _removeFromList: function (item) {
+    Actions.unselect(item);
   },
 
   _onClick: function(event) {
-    Utils.selectElementContents(event.target);
+    //event.target.select();
+  },
+
+  _onChange: function (event) {
+    var value = event.target.value;
+    if (Utils.isValidJson(value)) {
+      var json = JSON.parse(value);
+      Actions.setRecommendations(json);
+    }
+    this.setState({
+      elements : value
+    });
   },
 
   _getRecommendations: function() {
@@ -20,12 +38,17 @@ var DsxSelected = React.createClass({
     Actions.getRecommendations(ids);
   },
 
+  componentWillUpdate: function () {
+
+  },
+
   render: function () {
     var viewer;
     if (this.state.json) {
-      viewer = (<pre onClick={this._onClick} contentEditable='false'>{JSON.stringify(this.props.elements, null, 3)}</pre>);
+      var json = JSON.stringify(this.props.elements, null, 3);
+      viewer = (<textarea onClick={this._onClick} onChange={this._onChange}>{json}</textarea>);
     } else {
-      viewer = (<DsxList itemType={DsxListItem} listItems={this.props.elements} />);
+      viewer = (<DsxList itemType={DsxListItem} itemOnClick={this._removeFromList} listItems={this.props.elements} />);
     }
 
     return (
@@ -33,9 +56,9 @@ var DsxSelected = React.createClass({
       <div className="selected-viewer">
       {viewer}
       </div>
-      <input className="button alert" type="button" value="clear" onClick={ () => Actions.clear('selected')} />
       <input className="button" type="button" value={this.state.json ? "list" : "json"} onClick={ () => this.setState({json : !this.state.json})} />
-      <input className="button success" type="button" value='Get Recommendations' onClick={this.$_getRecommendations} />
+      <input className="button alert" type="button" value="clear" onClick={ () => Actions.clear('selected')} />
+      <input className="button success" type="button" value='Get Recommendations' onClick={this._getRecommendations} />
     </div>
     );
   }

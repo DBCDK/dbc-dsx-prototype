@@ -10,10 +10,6 @@ var _store = {
   rank: {}
 }
 
-function _socketSearch(query) {
-  socket.emit('dsxSearchRequest', {query : query.split(' ')});
-}
-
 var local = {
   get: function () {
     var stored = localStorage.getItem('dsxStoreState');
@@ -22,8 +18,6 @@ var local = {
   },
   set: function () {
     var string = JSON.stringify(_store);
-    console.log(_store);
-    console.log(string);
     localStorage.setItem('dsxStoreState', string);
   }
 }
@@ -36,11 +30,11 @@ var DsxStore = reflux.createStore({
     return _store;
   },
   search: function(query) {
+    socket.emit('dsxSearchRequest', {query : query.split(' ')});
     _store.search.pending = true;
     _store.search.query = query;
     _store.search.result = null;
     this.pushStore();
-    _socketSearch(query);
   },
   getRecommendations: function (ids) {
     socket.emit('dsxRecommendRequest', {query : ids});
@@ -52,19 +46,31 @@ var DsxStore = reflux.createStore({
     this.pushStore();
   },
   unselect: function (element) {
-    console.log(element);
     _store.selected = _store.selected.filter((item) => item.id !== element.id);
     this.pushStore();
   },
-
+  setRecommendations: function (elements) {
+    _store.selected = elements;
+    this.pushStore();
+  },
   clear: function (type) {
     _store[type] = Array.isArray(_store[type]) ? [] : {};
     this.pushStore();
   },
   result: function (result) {
+    console.log(result);
     _store.search.pending = false;
     _store.search.result = result.collections;
     this.pushStore();
+  },
+  rank: function (query, list) {
+    _store.search.pending = true;
+    _store.search.result = [];
+    this.pushStore();
+    socket.emit('dsxRankSearchRequest', {
+      query: query.split(' '),
+      like: list.map((item) => item.id)
+    });
   },
   init: function() {
     this.listenTo(actions.search, this.search);
@@ -72,8 +78,11 @@ var DsxStore = reflux.createStore({
     this.listenTo(actions.unselect, this.unselect);
     this.listenTo(actions.clear, this.clear);
     this.listenTo(actions.getRecommendations, this.getRecommendations);
+    this.listenTo(actions.setRecommendations, this.setRecommendations);
+    this.listenTo(actions.rank, this.rank);
     socket.on('dsxSearchResponse', this.result);
     socket.on('dsxRecommendResponse', this.result);
+    socket.on('dsxRankSearchResponse', this.result);
 
   },
   pushStore: function () {

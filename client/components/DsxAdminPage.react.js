@@ -30,7 +30,6 @@ var DsxAdminModule = React.createClass({
     });
   },
   _selectItem: function(item) {
-    console.log(item);
     if (!item.selected)
       Actions.select(item);
     else
@@ -45,8 +44,6 @@ var DsxAdminModule = React.createClass({
       <div className="large-12 columns">
       <h2>Search</h2>
         <SearchField initialValue={this.state.query} submit={this._onSubmit} button={true} buttonValue='Søg' />
-      <h2>Recommendations</h2>
-        <DsxRecommendations/>
       </div>
         <div class='large-12 columns'>
           <h2>Select List</h2>

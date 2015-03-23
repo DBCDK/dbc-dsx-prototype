@@ -13,7 +13,9 @@ var Actions = Reflux.createActions([
   'select',
   'unselect',
   'clear',
-  'getRecommendations'
+  'getRecommendations',
+  'setRecommendations',
+  'rank'
 ]);
 
 module.exports = Actions;

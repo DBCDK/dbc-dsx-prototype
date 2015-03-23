@@ -7,6 +7,7 @@ var DsxList =   React.createClass({
     var clickHandler = this.props.itemOnClick || null;
     var listItems = this.props.listItems.map((item) => {
       return itemType({
+        key: item.id,
         element: item,
         onClick : clickHandler
       });
@@ -20,3 +21,4 @@ var DsxList =   React.createClass({
 });
 
 module.exports = DsxList;
+
