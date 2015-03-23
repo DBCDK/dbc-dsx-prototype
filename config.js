@@ -1,1 +1,0 @@
-../dbc_config/react-search.config.js
