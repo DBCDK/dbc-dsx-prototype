@@ -19,7 +19,6 @@ app.set('port', process.env.PORT || 3000);
 //Initialize api
 services.init(socket);
 
-
 // Setup view engine
 var hbs = exphbs.create({
   defaultLayout: 'main',
@@ -34,7 +33,6 @@ app.use('/', express.static(__dirname + '/public'));
 app.use('/style', express.static(__dirname + '/style'));
 app.use('/', express.static(__dirname + '/static'));
 app.use('/', routes);
-
 
 // Startup server
 server.listen(app.get('port'), function() {
