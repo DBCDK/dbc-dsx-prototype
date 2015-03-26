@@ -21,7 +21,7 @@ services.init(socket);
 
 // Setup view engine
 var hbs = exphbs.create({
-  defaultLayout: 'main',
+  defaultLayout: 'main'
   //helpers: handlebars_helpers
 });
 app.set('views', path.join(__dirname, 'views'));
