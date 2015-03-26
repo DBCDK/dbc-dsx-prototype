@@ -20,6 +20,7 @@ var noErrors = new webpack.NoErrorsPlugin();
 module.exports = {
   entry: {
     admin: './client/entry/admin.entry.js',
+    rank: './client/entry/rank.entry.js'
   },
   output: {
     path: __dirname + '/public',
@@ -43,5 +44,6 @@ module.exports = {
     definePlugin,
     commonsPlugin
     //noErrors
-  ]
+  ],
+  devtool: 'inline-source-map'
 };
