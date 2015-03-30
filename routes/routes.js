@@ -10,9 +10,12 @@ router.get(['/admin', '/admin/*'], (req, res) => {
  res.render('admin');
 });
 
-// GET search page.
 router.get(['/rank', '/rank/*'], (req, res) => {
   res.render('rank');
+});
+
+router.get(['/search', '/search/*'], (req, res) => {
+  res.render('search');
 });
 
 // Fallback route : redirect non-targeted routes to /search/
