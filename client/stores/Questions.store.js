@@ -10,22 +10,24 @@ var _store = {
       pid: '870970-basis:51569253',
       title: 'Min kamp',
       creators: ['Karl Ove Knausgård'],
-      covers: []
+      covers: [],
+      pending: true
     },
     {
       pid: '870970-basis:228750978',
       title: 'Møgkællinger',
       creators: ['Gretelise Holm'],
-      covers: []
+      covers: [],
+      pending: true
     },
     {
       pid: '870970-basis:01264788',
       title: 'Månen tur-retur',
       creators: ['Hergé'],
-      covers: []
+      covers: [],
+      pending: true
     }
   ],
-  positivePids: [],
   currentQuestion: 0
 };
 
@@ -46,6 +48,7 @@ var QuestionsStore = Reflux.createStore({
     _store.questions.forEach(function(item) {
       if(item.pid == pid) {
         item.covers = images;
+        item.pending = false;
         that.trigger(_store);
       }
     });
