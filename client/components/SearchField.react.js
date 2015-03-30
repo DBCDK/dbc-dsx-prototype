@@ -11,21 +11,22 @@ var SearchField = React.createClass({
     return {text: (this.props.initialValue) ? this.props.initialValue : ''};
   },
   render: function() {
-    let button = (this.props.button) ? (
-      <input onClick={this._onClick} className='searchfield-button button postfix' value={this.props.buttonValue} type='button'/>) : '';
+    let button = (this.props.button) ? (<input onClick={this._onClick} className='searchfield-button button postfix' value={this.props.buttonValue} type='button'/>) : '';
+    let columns = this.props.columns || 'large-10 columns';
     return (
       <div className='searchfield'>
-        <div className='large-10 columns'>
+        <div className={columns}>
           <input
             className='searchfield-input'
             type='text'
             name='search'
             ref='searchinput'
+            placeholder='So what cha want?'
             value={this.state.text}
             onKeyDown={this._onKeyDown}
             onChange={this._onChange}/>
         </div>
-        <div className="large-2 columns">
+        <div className="small-2 columns">
           {button}
         </div>
       </div>
