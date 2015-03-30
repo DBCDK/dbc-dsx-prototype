@@ -15,7 +15,9 @@ var Actions = Reflux.createActions([
   'clear',
   'getRecommendations',
   'setRecommendations',
-  'rank'
+  //DSX Tinder
+  'rank',
+  'rankSearch'
 ]);
 
 module.exports = Actions;
