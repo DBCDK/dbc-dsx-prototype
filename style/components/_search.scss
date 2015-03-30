@@ -1,0 +1,61 @@
+$inactive: #505050;
+$rankedGreen: #009f00;
+
+.search--button {
+  max-width: 40px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.search--result {
+  p {
+    color: $inactive;
+  }
+}
+
+.search--rankpicker {
+  a {
+    color: $inactive;
+    padding: 0 50px;
+    &.active {
+      color: $rankedGreen;
+    }
+  }
+}
+
+.active {
+  color: $inactive;
+}
+
+.search--result-item {
+  padding-top: 10px;
+}
+
+.search--result-item-weights {
+  font-size: .8em;
+  text-align: right;
+}
+
+.search--result-item-weights-ranked {
+  color: $rankedGreen;
+}
+
+.search--result-item-weights-normal {
+  color: $inactive;
+}
+
+.search--result-item-matinfo {
+  text-align: left;
+  //background-color: #F2F2F2;
+  margin-right: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 3px;
+}
+
+.search--result-item-matinfo-title {
+  font-weight: bold;
+}
+
+.search--result-item-matinfo-creator {
+
+}

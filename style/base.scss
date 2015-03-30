@@ -2,11 +2,22 @@ body {
   background-color: #efefef;
 }
 
+h2,p {
+  font-family: "Open Sans";
+  font-weight: 200;
+}
+
+input[type="text"] {
+  @extend h2;
+}
+
 .viewport {
   font-family: "Open Sans";
+  font-weight: 200;
   text-align: center;
   margin: auto;
-  width: 400px;
+  width: 100%;
+  max-width: 500px;
   background-color: #fcfcfc;
   height: 100%;
 }
