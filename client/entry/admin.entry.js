@@ -14,7 +14,7 @@ var routes = (
   <Route handler={DsxAdminPage} path="/admin/" />
   <Route handler={DsxAdminPage} path="/admin" />
   <Route handler={DsxRankPage} name="rank" path="/admin/rank" />
-  <Route handler={DsxRecommendPage} name="recommend" path="/" />
+  <Route handler={DsxRecommendPage} name="recommend" path="/admin/recommend" />
   </Route>
 
 );
