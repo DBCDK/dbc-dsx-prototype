@@ -10,9 +10,17 @@ var RankSearchStore = require('../stores/RankSearch.store');
 
 var SearchPage = React.createClass({
   mixins: [Reflux.ListenerMixin],
+
   getInitialState: function() {
     "use strict";
     return RankSearchStore.getState();
+  },
+
+  componentDidMount: function(){
+    "use strict";
+    this.listenTo(RankSearchStore, function(){
+      this.setState(RankSearchStore.getState());
+    });
   },
 
   render: function() {
@@ -48,8 +56,8 @@ var SearchPage = React.createClass({
     if(!this.state.text) {
       return;
     }
-    this.setState({searching:true});
-    Actions.rankSearch(this.state.text);
+    this.setState({searching:true, pending: true});
+    Actions.rank(this.state.text);
   }
 });
 
