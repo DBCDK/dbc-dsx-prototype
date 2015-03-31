@@ -64,10 +64,8 @@ var DsxStore = reflux.createStore({
     this.pushStore();
   },
   rank: function(query, list) {
-    console.log('rank');
     _store.search.pending = true;
     _store.search.result = [];
-    console.log(list);
     this.pushStore();
     socket.emit('dsxRankSearchRequest', {
       query: query.split(' '),
