@@ -1,5 +1,6 @@
 $inactive: #505050;
 $rankedGreen: #009f00;
+$borderColor: #c5c5c5;
 
 .search--button {
   max-width: 40px;
@@ -46,7 +47,6 @@ $rankedGreen: #009f00;
 
 .search--result-item-matinfo {
   text-align: left;
-  //background-color: #F2F2F2;
   margin-right: 10px;
   border: 1px solid #c5c5c5;
   border-radius: 3px;
