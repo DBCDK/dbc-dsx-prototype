@@ -1,11 +1,11 @@
 var Reflux = require('reflux');
 var Actions = require('../actions/Actions');
-var Socket = require('socket.io-client').connect();
+var socket = require('socket.io-client').connect();
 
 var _store = {
   ranked: {},
   normal: {},
-  pending: true,
+  pending: false,
   searching: false
 };
 
@@ -15,18 +15,23 @@ var RankSearchStore = Reflux.createStore({
     return _store;
   },
 
-  normalSearch: function() {
+  normalSearch: function(query) {
     "use strict";
+    socket.emit('dsxSearchRequest', {
+      query: query.split(' ')
+    });
+  },
 
+  normalSearchResult: function(result){
+    "use strict";
+    _store.pending = false;
+    this.pushStore();
   },
 
   rankedSearch: function(query) {
     "use strict";
-    console.log(query);
     var pids = userStorage.get();
-    console.log(pids);
-
-    Socket.emit('dsxRankSearchRequest', {
+    socket.emit('dsxRankSearchRequest', {
       query: query.split(' '),
       like: pids
     });
@@ -34,22 +39,24 @@ var RankSearchStore = Reflux.createStore({
 
   rankedSearchResult: function(result) {
     "use strict";
-    console.log(result);
+    _store.pending = false;
+    this.pushStore();
   },
 
   clear: function() {
     "use strict";
-
   },
 
   init: function() {
     "use strict";
-    this.listenTo(Actions.rankSearch, this.rankedSearch);
-    Socket.on('dsxRankSearchResponse', this.rankedSearchResult);
+    this.listenTo(Actions.search, this.normalSearch);
+    this.listenTo(Actions.rank, this.rankedSearch);
 
+    socket.on('dsxRankSearchResponse', this.rankedSearchResult);
+    socket.on('dsxSearchResponse', this.normalSearchResult);
   },
 
-  pushState: function() {
+  pushStore: function() {
     "use strict";
     this.trigger(_store);
   }
