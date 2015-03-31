@@ -6,7 +6,27 @@ var Socket = require('socket.io-client').connect();
 var _store = {
   questions: [
     {
-      //id: '870970-basis:228650582',
+      pid: '870970-basis:24490521',
+      title: 'Min kamp',
+      creators: ['Karl Ove Knausgård'],
+      covers: [],
+      pending: true
+    },
+    {
+      pid: '870970-basis:23981343',
+      title: 'Møgkællinger',
+      creators: ['Gretelise Holm'],
+      covers: [],
+      pending: true
+    },
+    {
+      pid: '870970-basis:20521104',
+      title: 'Månen tur-retur',
+      creators: ['Hergé'],
+      covers: [],
+      pending: true
+    }
+    /*{
       pid: '870970-basis:51569253',
       title: 'Min kamp',
       creators: ['Karl Ove Knausgård'],
@@ -26,7 +46,7 @@ var _store = {
       creators: ['Hergé'],
       covers: [],
       pending: true
-    }
+    }*/
   ],
   currentQuestion: 0
 };
