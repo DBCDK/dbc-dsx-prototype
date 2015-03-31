@@ -30,6 +30,8 @@ $borderColor: #c5c5c5;
 
 .search--result-item {
   padding-top: 10px;
+  min-height: 60px;
+  display: block;
 }
 
 .search--result-item-weights {
