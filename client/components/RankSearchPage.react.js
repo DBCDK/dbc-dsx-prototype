@@ -25,7 +25,7 @@ var SearchPage = React.createClass({
 
   render: function() {
     "use strict";
-    var resultView = (this.state.searching) ? <SearchResult pending={this.state.pending} /> : '';
+    var resultView = (this.state.searching) ? <SearchResult ranked={this.state.ranked} pending={this.state.pending} /> : '';
 
     return (
       <div className='search--pagewrapper'>
@@ -56,7 +56,7 @@ var SearchPage = React.createClass({
     if(!this.state.text) {
       return;
     }
-    this.setState({searching:true, pending: true});
+
     Actions.rank(this.state.text);
   }
 });

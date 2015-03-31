@@ -3,10 +3,11 @@ var Actions = require('../actions/Actions');
 var socket = require('socket.io-client').connect();
 
 var _store = {
-  ranked: {},
-  normal: {},
+  ranked: [],
+  normal: [],
   pending: false,
-  searching: false
+  searching: false,
+  query: ''
 };
 
 var RankSearchStore = Reflux.createStore({
@@ -17,19 +18,38 @@ var RankSearchStore = Reflux.createStore({
 
   normalSearch: function(query) {
     "use strict";
+    this._setStatus(true, true);
+
     socket.emit('dsxSearchRequest', {
       query: query.split(' ')
     });
   },
 
-  normalSearchResult: function(result){
+  normalSearchResult: function(result) {
     "use strict";
-    _store.pending = false;
+    this._setStatus(true, false);
+    console.log(result);
+    this._mapToRankedSearch(result.collections);
+  },
+
+  _mapToRankedSearch: function(collections) {
+    "use strict";
+    collections.forEach(function(normalItem, normalKey) {
+      normalItem.normalKey = normalKey + 1;
+      _store.ranked.forEach(function(rankedItem, rankedKey) {
+        if(normalItem.id == rankedItem.id) {
+          normalItem.rankedKey = rankedKey + 1;
+          rankedItem.normalKey = normalKey + 1;
+        }
+      });
+    });
     this.pushStore();
   },
 
   rankedSearch: function(query) {
     "use strict";
+    _store.query = query;
+    this._setStatus(true, true);
     var pids = userStorage.get();
     socket.emit('dsxRankSearchRequest', {
       query: query.split(' '),
@@ -39,8 +59,13 @@ var RankSearchStore = Reflux.createStore({
 
   rankedSearchResult: function(result) {
     "use strict";
-    _store.pending = false;
-    this.pushStore();
+    _store.ranked = result.collections;
+    _store.ranked.forEach(function(value, key){
+      value.rankedKey = key + 1;
+      value.normalKey = '?';
+    });
+    this._setStatus(true, false);
+    this.normalSearch(_store.query);
   },
 
   clear: function() {
@@ -59,6 +84,14 @@ var RankSearchStore = Reflux.createStore({
   pushStore: function() {
     "use strict";
     this.trigger(_store);
+  },
+
+  _setStatus: function(searching, pending) {
+    "use strict";
+    _store.pending = pending;
+    _store.searching = searching;
+    console.log(_store);
+    this.pushStore();
   }
 });
 
