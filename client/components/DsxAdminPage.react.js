@@ -41,16 +41,16 @@ var DsxAdminModule = React.createClass({
     return (
       <div className='search row'>
       <div className='input-wrapper large-6 columns'>
-      <div className="large-12 columns">
+      <div className="small-12 columns">
       <h2>Search</h2>
         <SearchField initialValue={this.state.query} submit={this._onSubmit} button={true} buttonValue='Søg' />
       </div>
-        <div class='large-12 columns'>
+        <div class='small-12 columns'>
           <h2>Select List</h2>
           <DsxSelected elements={this.state.selected} />
         </div>
       </div>
-      <div className="output-wrapper large-6 columns">
+      <div className="output-wrapper small-6 columns">
       <h2>Search Result</h2>
         <Loader loaded={!this.state.search.pending}>
           <DsxList itemType={DsxListItem} listItems={result} itemOnClick={this._selectItem} />
