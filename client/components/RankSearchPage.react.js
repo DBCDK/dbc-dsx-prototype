@@ -16,16 +16,15 @@ var SearchPage = React.createClass({
     return RankSearchStore.getState();
   },
 
-  componentDidMount: function(){
+  componentDidMount: function() {
     "use strict";
-    this.listenTo(RankSearchStore, function(){
+    this.listenTo(RankSearchStore, function() {
       this.setState(RankSearchStore.getState());
     });
   },
 
   render: function() {
     "use strict";
-    var resultView = (this.state.searching) ? <SearchResult ranked={this.state.ranked} pending={this.state.pending} /> : '';
 
     return (
       <div className='search--pagewrapper'>
@@ -40,7 +39,14 @@ var SearchPage = React.createClass({
 
         <div className='search--resultwrapper'>
           <hr/>
-          {resultView}
+          <SearchResult
+            view={this.state.view}
+            viewSelectorCallback={this._selectView}
+            rankedSearchResult={this.state.ranked}
+            normalSearchResult={this.state.normal}
+            pending={this.state.pending}
+            searching={this.state.searching}
+            />
         </div>
       </div>
     );
@@ -49,6 +55,11 @@ var SearchPage = React.createClass({
   _onChange: function(text) {
     "use strict";
     this.setState({text: text});
+  },
+
+  _selectView: function(view) {
+    "use strict";
+    this.setState({view: view});
   },
 
   submit: function() {

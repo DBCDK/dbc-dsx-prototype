@@ -7,7 +7,8 @@ var _store = {
   normal: [],
   pending: false,
   searching: false,
-  query: ''
+  query: '',
+  view: 'personal' //personal or normal
 };
 
 var RankSearchStore = Reflux.createStore({
@@ -28,7 +29,6 @@ var RankSearchStore = Reflux.createStore({
   normalSearchResult: function(result) {
     "use strict";
     this._setStatus(true, false);
-    console.log(result);
     this._mapToRankedSearch(result.collections);
   },
 
@@ -36,6 +36,7 @@ var RankSearchStore = Reflux.createStore({
     "use strict";
     collections.forEach(function(normalItem, normalKey) {
       normalItem.normalKey = normalKey + 1;
+      normalItem.rankedKey = '?';
       _store.ranked.forEach(function(rankedItem, rankedKey) {
         if(normalItem.id == rankedItem.id) {
           normalItem.rankedKey = rankedKey + 1;
@@ -43,6 +44,7 @@ var RankSearchStore = Reflux.createStore({
         }
       });
     });
+    _store.normal = collections;
     this.pushStore();
   },
 
@@ -90,7 +92,6 @@ var RankSearchStore = Reflux.createStore({
     "use strict";
     _store.pending = pending;
     _store.searching = searching;
-    console.log(_store);
     this.pushStore();
   }
 });

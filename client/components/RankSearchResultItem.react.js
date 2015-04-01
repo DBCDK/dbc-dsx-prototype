@@ -9,17 +9,20 @@ var ResultItem = React.createClass({
     let rankedKey = this.props.rankedKey;
     let normalKey = this.props.normalKey;
 
+    let rankedKeyClass = (this.props.currentView == 'personal') ? 'active' : '';
+    let normalKeyClass = (this.props.currentView == 'normal') ? 'active' : '';
+
     return (
       <div className='search--result-item'>
         <div className='search--result-item-weights small-1 columns'>
-          <span className='search--result-item-weights-ranked'>{rankedKey}</span>
+          <span className={rankedKeyClass}>{rankedKey}</span>
           <br/>
-          <span className='search--result-item-weights-normal'>{normalKey}</span>
+          <span className={normalKeyClass}>{normalKey}</span>
         </div>
         <div className='search--result-item-matinfo small-10 columns'>
           <span className='search--result-item-matinfo-title'>{title}</span>
           <br/>
-          <span className='search--result-item-matinfo-creator'>{creator}</span>
+          <span>{creator}</span>
         </div>
       </div>
     );
