@@ -22,7 +22,7 @@ var ResultItem = React.createClass({
         <div className='search--result-item-matinfo small-10 columns'>
           <span className='search--result-item-matinfo-title'>{title}</span>
           <br/>
-          <span>{creator}</span>
+          <span className='search--result-item-matinfo-creator'>{creator}</span>
         </div>
       </div>
     );
