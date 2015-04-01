@@ -13,7 +13,7 @@ var ResultItem = React.createClass({
     let normalKeyClass = (this.props.currentView == 'normal') ? 'active' : '';
 
     return (
-      <div className='search--result-item'>
+      <div className='search--result-item clearfix'>
         <div className='search--result-item-weights small-1 columns'>
           <span className={rankedKeyClass}>{rankedKey}</span>
           <br/>
