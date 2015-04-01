@@ -221,11 +221,9 @@ var QuestionsStore = Reflux.createStore({
 
   _addCoverUrl: function(result) {
     "use strict";
-    console.log('add');
     var that = this;
     var pid = result.pid;
     var images = result.images;
-    console.log(images);
     _store.questions.forEach(function(item) {
       if(item.id == pid) {
         item.covers = images;
