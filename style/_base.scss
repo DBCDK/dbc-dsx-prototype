@@ -1,6 +1,5 @@
 body {
-  //background-color: #efefef;
-  background-color: #000;
+  background-color: $bodyBg;
 }
 
 h2,p {
@@ -12,14 +11,18 @@ input[type="text"] {
   @extend h2;
 }
 
+#admin {
+  background-color: $viewportBg;
+}
+
 .viewport {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   margin: auto;
   width: 100%;
   max-width: 500px;
-  background-color: #fcfcfc;
-  padding: 0 20px;
+  background-color: $viewportBg;
+  padding: 10px 20px 0 20px;
   min-height: 100%;
 }
 

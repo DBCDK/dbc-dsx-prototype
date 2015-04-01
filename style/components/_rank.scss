@@ -1,12 +1,22 @@
 .rank--question-card {
-  img {
-    max-height: 300px;
-  }
+  border: 1px solid $borderColor;
+  border-radius: 2px;
+  background-color: #FFF;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
 }
 
 .rank--question-card-img{
   display: block;
-  height: 300px;
+  img {
+    padding: 10px;
+    max-height: 300px;
+  }
+}
+
+.rank--buttons {
+  margin-top: 20px;
 }
 
 .rank--buttons-button {
