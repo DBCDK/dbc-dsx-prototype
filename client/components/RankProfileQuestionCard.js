@@ -15,15 +15,16 @@ var Question = React.createClass({
   },
 
   render: function() {
-    var question = this.props.question;
+    "use strict";
+    let question = this.props.question;
     if(!question) {
       return this._basicTemplate();
     }
 
-    var cover = 'images/loader.gif';
-    var covers = question.covers;
-    var pending = question.pending;
-    if(!pending) {
+    let cover = 'images/loader.gif';
+    let covers = question.covers;
+
+    if(covers) {
       cover = (covers.length == 0) ? 'images/dummy.jpg' : covers[3].url;
     }
 
@@ -35,7 +36,7 @@ var Question = React.createClass({
 
         <h3>{question.title}</h3>
 
-        <p>{question.creators[0]}</p>
+        <p>{question.creator[0]}</p>
       </div>
     );
   },
