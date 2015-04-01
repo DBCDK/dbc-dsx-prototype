@@ -27,7 +27,7 @@ var RankProfile = React.createClass({
     }
 
     return (
-      <div>
+      <div className="rank--page">
         <QuestionCard question={currentQuestion} />
 
         <div className="rank--buttons">
@@ -42,7 +42,7 @@ var RankProfile = React.createClass({
   _onClick: function(added) {
     "use strict";
     var currentQuestion = this._getCurrentQuestion();
-    var pid = currentQuestion.pid;
+    var pid = currentQuestion.id;
     if(!pid){
       return;
     }
