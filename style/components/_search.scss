@@ -25,7 +25,7 @@ $borderColor: #c5c5c5;
 }
 
 .active {
-  color: $inactive;
+  color: $rankedGreen;
 }
 
 .search--result-item {
@@ -40,14 +40,6 @@ $borderColor: #c5c5c5;
   text-align: right;
 }
 
-.search--result-item-weights-ranked {
-  color: $rankedGreen;
-}
-
-.search--result-item-weights-normal {
-  color: $inactive;
-}
-
 .search--result-item-matinfo {
   text-align: left;
   margin-right: 10px;
@@ -58,8 +50,4 @@ $borderColor: #c5c5c5;
 
 .search--result-item-matinfo-title {
   font-weight: bold;
-}
-
-.search--result-item-matinfo-creator {
-
 }

@@ -1,3 +1,33 @@
-#container--frontpage-heading {
-  font-size: 3em;
+.frontpage {
+  background: url('/images/personlig-rankering-bg.png') no-repeat fixed center;
+  background-size: auto 100%;
+}
+
+.frontpage--container {
+  color: #FFFFFF;
+  padding-top: 46%;
+}
+
+.frontpage--heading {
+  font-size: 2.4rem;
+  margin: 0 auto;
+  width: 50%;
+  line-height: 1.1;
+  h2 {
+    color: #FFFFFF;
+  }
+}
+
+.frontpage--body {
+  p {
+    font-size: 1rem;
+  }
+  margin: 0 auto;
+  width: 75%;
+}
+
+.frontpage--arrow {
+  margin: auto;
+  width: 100px;
+  display: block;
 }
