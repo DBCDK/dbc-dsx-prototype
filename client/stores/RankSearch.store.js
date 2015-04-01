@@ -8,7 +8,8 @@ var _store = {
   pending: false,
   searching: false,
   query: '',
-  view: 'personal' //personal or normal
+  view: 'personal', //personal or normal
+  text: ''
 };
 
 var RankSearchStore = Reflux.createStore({

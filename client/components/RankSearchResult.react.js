@@ -25,7 +25,6 @@ var SearchResult = React.createClass({
 
   render: function() {
     "use strict";
-    console.log(this.props);
     if(_.isEmpty(this.props.normalSearchResult) && _.isEmpty(this.props.rankedSearchResult) && !this.props.searching) {
       return this._pendingTemplate();
     }

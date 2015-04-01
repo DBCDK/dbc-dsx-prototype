@@ -25,6 +25,7 @@ var SearchPage = React.createClass({
 
   render: function() {
     "use strict";
+    let buttonClasses = (this.state.text.length >= 4) ? 'right search--button small-2 columns' : 'hide';
 
     return (
       <div className='search--pagewrapper'>
@@ -34,7 +35,7 @@ var SearchPage = React.createClass({
           <p>Vi rankerer resultatet af søgningen ud fra de materialer, du har udvalgt</p>
           <SearchFieldComponent columns='small-10 columns' change={this._onChange} submit={this.submit}/>
 
-          <a className="right search--button" onClick={this.submit}><img src="images/yes-button-normal.png"/></a>
+          <a className={buttonClasses} onClick={this.submit}><img src='images/yes-button-normal.png'/></a>
         </div>
 
         <div className='search--resultwrapper'>
