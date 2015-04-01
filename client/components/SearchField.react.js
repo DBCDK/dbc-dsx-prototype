@@ -32,8 +32,9 @@ var SearchField = React.createClass({
       </div>
     );
   },
-  _onChange: function(event, value) {
-    this.setState({text: event.target.value});
+  _onChange: function(event) {
+    let txt = event.target.value.toLowerCase();
+    this.setState({text: txt});
     this.props.change && this.props.change(event.target.value)
   },
   _onClick: function() {
