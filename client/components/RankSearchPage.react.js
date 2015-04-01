@@ -2,7 +2,7 @@ var React = require('react/addons');
 var Reflux = require('reflux');
 var Actions = require('../actions/Actions');
 
-var SearchResult = require('./RankSearchResult');
+var SearchResult = require('./RankSearchResult.react.js');
 
 var SearchFieldComponent = require('./SearchField.react');
 
