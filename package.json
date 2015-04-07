@@ -37,7 +37,8 @@
     "reflux": "^0.2.7",
     "soap": "^0.8.0",
     "socket.io": "^1.3.5",
-    "socket.io-client": "^1.3.5"
+    "socket.io-client": "^1.3.5",
+    "yargs": "^3.7.0"
   },
   "devDependencies": {
     "babel-core": "^4.6.3",
