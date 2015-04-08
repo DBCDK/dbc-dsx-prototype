@@ -16,7 +16,6 @@ var RecommendationsStore = Reflux.createStore({
 
   getRecommendations: function(pids){
     "use strict";
-    console.log('getRecommendations:', pids);
     Socket.emit('dsxRecommendRequest', {query: pids});
     _store.pending = true;
     this.pushStore();
@@ -24,7 +23,6 @@ var RecommendationsStore = Reflux.createStore({
 
   result: function(result){
     "use strict";
-    console.log('result:', result);
     _store.result = result.collections;
     _store.pending = false;
     this.pushStore();

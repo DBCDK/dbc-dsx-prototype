@@ -1,6 +1,24 @@
 var React = require('react');
 var Reflux = require('reflux');
 
+var RecommendationsItem = React.createClass({
+  render: function(){
+    "use strict";
+    let title = this.props.title;
+    let creator = this.props.creator;
+
+    return (
+      <div className='search--result-item clearfix'>
+        <div className='search--result-item-matinfo small-12 columns'>
+          <span className='search--result-item-matinfo-title'>{title}</span>
+          <br/>
+          <span className='search--result-item-matinfo-creator'>{creator}</span>
+        </div>
+      </div>
+    )
+  }
+});
+
 var RecommendationsSearchResult = React.createClass({
 
   _getItems:function(){
@@ -12,17 +30,10 @@ var RecommendationsSearchResult = React.createClass({
     result.forEach(function(value){
       let title = that._capitalizeFirstWord(value.title);
       let creator = that._capitalizeEachWord(value.creator[0]);
-
-      items.push((
-        <div className='search--result-item clearfix'>
-          <div className='search--result-item-matinfo small-12 columns'>
-            <span className='search--result-item-matinfo-title'>{title}</span>
-            <br/>
-            <span className='search--result-item-matinfo-creator'>{creator}</span>
-          </div>
-        </div>
-      ));
+      let item =  <RecommendationsItem key={value.id} title={title} creator={creator} />;
+      items.push(item);
     });
+
     return items;
   },
 
@@ -55,5 +66,5 @@ var RecommendationsSearchResult = React.createClass({
   }
 });
 
-module.exports = RecommendationsSearchResult; 
+module.exports = RecommendationsSearchResult;
 
