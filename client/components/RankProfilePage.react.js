@@ -34,7 +34,7 @@ var RankProfile = React.createClass({
           <a className="rank--buttons-button" onClick={() => this._onClick()}><img src="images/no-knap.png"/></a>
           <a className="rank--buttons-button" onClick={() => this._onClick(true)}><img src="images/yes-knap.png"/></a>
         </div>
-        <span className="rank--page-infotxt">Skab din egen profil ved at vælge mindst 5 bøger, du godt kan lide.</span>
+        <span className="rank--page-infotxt p centered">Skab din egen profil ved at vælge mindst 5 bøger, du godt kan lide.</span>
       </div>
     );
   },

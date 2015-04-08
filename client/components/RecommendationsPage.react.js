@@ -17,7 +17,7 @@ var RecommendationsPage = React.createClass({
       this.setState(Store.getState());
     });
 
-    if(this.state.pids.length >= 1){
+    if(this.state.pids.length >= 1) {
       Store.getRecommendations(this.state.pids);
     }
   },
@@ -27,12 +27,16 @@ var RecommendationsPage = React.createClass({
     return (
       <div className='search--pagewrapper'>
         <div className='search--wrapper'>
-          <h2>Søgning</h2>
+          <h2>Lav en søgning</h2>
 
-          <p>Vi rankerer resultatet af søgningen ud fra de materialer, du har udvalgt</p>
+          <span className="p centered">Så rankerer vi resultatet ud fra din profil</span>
+          <span className="rank--buttons-button centered">
+            <a href="/search"><img src="images/arrow-right-knap.png"/></a>
+          </span>
+          <span className="p centered">eller</span>
         </div>
 
-        <RecommendationsSearchResult result={this.state.result} pending={this.state.pending} />
+        <RecommendationsSearchResult result={this.state.result} pending={this.state.pending}/>
       </div>
     );
   }

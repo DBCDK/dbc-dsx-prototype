@@ -45,6 +45,8 @@ var RecommendationsSearchResult = React.createClass({
     return (
       <div className='search--resultwrapper'>
         <hr/>
+        <h2>Se vores anbefalinger til dig</h2>
+        <span className="p centered">på baggrund af din profil</span>
         {loadingIndicator}
         {result}
       </div>
