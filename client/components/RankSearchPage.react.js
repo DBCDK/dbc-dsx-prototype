@@ -35,7 +35,7 @@ var SearchPage = React.createClass({
           <p>Vi rankerer resultatet af søgningen ud fra de materialer, du har udvalgt</p>
           <SearchFieldComponent columns='small-10 columns' change={this._onChange} submit={this.submit}/>
 
-          <a className={buttonClasses} onClick={this.submit}><img src='images/yes-button-normal.png'/></a>
+          <a className={buttonClasses} onClick={this.submit}><img src='images/yes-knap.png'/></a>
         </div>
 
         <div className='search--resultwrapper'>
