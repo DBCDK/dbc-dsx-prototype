@@ -13,6 +13,7 @@ var SearchPage = React.createClass({
 
   getInitialState: function() {
     "use strict";
+    console.log('init');
     return RankSearchStore.getState();
   },
 
@@ -25,6 +26,7 @@ var SearchPage = React.createClass({
 
   render: function() {
     "use strict";
+    console.log(this.state);
     let buttonClasses = (this.state.text.length >= 4) ? 'right search--button small-2 columns' : 'hide';
 
     return (
@@ -49,7 +51,7 @@ var SearchPage = React.createClass({
             rankedSearchResult={this.state.ranked}
             normalSearchResult={this.state.normal}
             pending={this.state.pending}
-            searching={this.state.searching}
+            didSearch={this.state.didSearch}
             />
         </div>
       </div>

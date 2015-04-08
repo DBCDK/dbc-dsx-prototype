@@ -26,7 +26,7 @@ var RankProfile = React.createClass({
       return;
     }
 
-    let infotext = (JSON.parse(localStorage.getItem('pids')).length >= 5) ? <a href='/search'>Videre til søgning &#8594;</a> : "Skab din egen profil ved at vælge mindst 5 bøger, du godt kan lide.";
+    let infotext = (JSON.parse(localStorage.getItem('pids')).length >= 5) ? <a href='/recommendations'>Videre &#8594;</a> : "Skab din egen profil ved at vælge mindst 5 bøger, du godt kan lide.";
 
     return (
       <div className="rank--page">

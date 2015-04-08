@@ -25,14 +25,19 @@ var SearchResult = React.createClass({
 
   render: function() {
     "use strict";
-    if(_.isEmpty(this.props.normalSearchResult) && _.isEmpty(this.props.rankedSearchResult) && !this.props.searching) {
+
+    if(this.props.pending) {
       return this._pendingTemplate();
+    }
+
+    if(!this.props.didSearch){
+      return (<div></div>);
     }
 
     let rankedCount = this.props.rankedSearchResult.length;
     let normalCount = this.props.normalSearchResult.length;
 
-    if(_.isEmpty(this.props.rankedSearchResult)) {
+    if(_.isEmpty(this.props.rankedSearchResult) && this.props.didSearch) {
       return this._emptyResultTemplate();
     }
 
@@ -68,10 +73,9 @@ var SearchResult = React.createClass({
 
   _pendingTemplate: function() {
     "use strict";
-    let loader = (this.props.pending) ? <img src='images/pacman.gif'/> : '';
     return (
       <div className='search--result'>
-        {loader}
+        <img src='images/pacman.gif'/>
       </div>
     );
   },

@@ -6,7 +6,7 @@ var _store = {
   ranked: [],
   normal: [],
   pending: false,
-  searching: false,
+  didSearch: false,
   query: '',
   view: 'personal', //personal or normal
   text: ''
@@ -20,7 +20,6 @@ var RankSearchStore = Reflux.createStore({
 
   normalSearch: function(query) {
     "use strict";
-    this._setStatus(true, true);
 
     socket.emit('dsxSearchRequest', {
       query: query.split(' ')
@@ -29,7 +28,6 @@ var RankSearchStore = Reflux.createStore({
 
   normalSearchResult: function(result) {
     "use strict";
-    this._setStatus(true, false);
     this._mapToRankedSearch(result.collections);
   },
 
@@ -47,12 +45,14 @@ var RankSearchStore = Reflux.createStore({
     });
     _store.normal = collections;
     this.pushStore();
+    this._setStatus(true, false);
   },
 
   rankedSearch: function(query) {
     "use strict";
+    _store.text = query;
     _store.query = query;
-    this._setStatus(true, true);
+    this._setStatus(false, true);
     var pids = userStorage.get();
     socket.emit('dsxRankSearchRequest', {
       query: query.split(' '),
@@ -67,7 +67,6 @@ var RankSearchStore = Reflux.createStore({
       value.rankedKey = key + 1;
       value.normalKey = '?';
     });
-    this._setStatus(true, false);
     this.normalSearch(_store.query);
   },
 
@@ -91,8 +90,8 @@ var RankSearchStore = Reflux.createStore({
 
   _setStatus: function(searching, pending) {
     "use strict";
+    _store.didSearch = searching;
     _store.pending = pending;
-    _store.searching = searching;
     this.pushStore();
   }
 });
