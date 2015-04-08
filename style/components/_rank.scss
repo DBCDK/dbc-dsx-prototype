@@ -16,20 +16,12 @@
   }
 }
 
-.rank--buttons {
-  margin-top: 20px;
-}
-
-.rank--buttons-button {
-  display: inline-block;
-  max-width: 80px;
-}
-
 .rank--question-card-title {
   font-size: 1.5rem;
   line-height: 1.7rem;
   font-weight: bold;
   padding: 0 10px;
+  min-height: 30px;
   max-height: 58px;
   overflow: hidden;
 }
@@ -40,4 +32,20 @@
   padding: 0 10px;
   max-height: 25px;
   overflow: hidden;
+}
+
+.rank--buttons {
+  margin-top: 20px;
+}
+
+.rank--buttons-button {
+  display: inline-block;
+  max-width: 80px;
+}
+
+.rank--page-infotxt {
+  display: block;
+  width: 200px;
+  font-weight: 200;
+  margin: 10px auto auto;
 }

@@ -20,9 +20,7 @@ var RankProfile = React.createClass({
 
   render: function() {
     "use strict";
-    var currentQuestion = this._getCurrentQuestion();
-
-    var searchLink = '';
+    let currentQuestion = this._getCurrentQuestion();
     if(!currentQuestion) {
       window.location = "/recommendations";
       return;
@@ -33,24 +31,24 @@ var RankProfile = React.createClass({
         <QuestionCard question={currentQuestion} />
 
         <div className="rank--buttons">
-          <a className="rank--buttons-button" onClick={() => this._onClick()}><img src="images/no-button-normal.png"/></a>
-          <a className="rank--buttons-button" onClick={() => this._onClick(true)}><img src="images/yes-button-normal.png"/></a>
+          <a className="rank--buttons-button" onClick={() => this._onClick()}><img src="images/no-knap.png"/></a>
+          <a className="rank--buttons-button" onClick={() => this._onClick(true)}><img src="images/yes-knap.png"/></a>
         </div>
-        <div className="rank--searchlink">{searchLink}</div>
+        <span className="rank--page-infotxt">Skab din egen profil ved at vælge mindst 5 bøger, du godt kan lide.</span>
       </div>
     );
   },
 
   _onClick: function(added) {
     "use strict";
-    var currentQuestion = this._getCurrentQuestion();
-    var pid = currentQuestion.id;
+    let currentQuestion = this._getCurrentQuestion();
+    let pid = currentQuestion.id;
     if(!pid){
       return;
     }
 
     if(added) {
-      var positivePids = JSON.parse(localStorage.getItem('pids'));
+      let positivePids = JSON.parse(localStorage.getItem('pids'));
       positivePids.push(pid);
       localStorage.setItem('pids', JSON.stringify(positivePids));
     }
@@ -62,7 +60,7 @@ var RankProfile = React.createClass({
 
   _getCurrentQuestion: function() {
     "use strict";
-    var currentQuestionIndex = this.state.currentQuestion;
+    let currentQuestionIndex = this.state.currentQuestion;
     if(this.state.questions.length >= currentQuestionIndex + 1){
       return this.state.questions[currentQuestionIndex];
     }

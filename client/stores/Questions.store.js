@@ -1,6 +1,7 @@
 var Reflux = require('reflux');
 var Actions = require('../actions/Actions');
 var Socket = require('socket.io-client').connect();
+var _ = require('lodash');
 
 var _store = {
   questions: [
@@ -131,6 +132,7 @@ var QuestionsStore = Reflux.createStore({
   },
 
   init: function() {
+    _store.questions = _.shuffle(_store.questions);
     enrichQuestionData(this._addCoverUrl);
   },
 
