@@ -26,6 +26,8 @@ var RankProfile = React.createClass({
       return;
     }
 
+    let infotext = (JSON.parse(localStorage.getItem('pids')).length >= 5) ? <a href='/search'>Videre til søgning &#8594;</a> : "Skab din egen profil ved at vælge mindst 5 bøger, du godt kan lide.";
+
     return (
       <div className="rank--page">
         <QuestionCard question={currentQuestion} />
@@ -34,7 +36,7 @@ var RankProfile = React.createClass({
           <a className="rank--buttons-button" onClick={() => this._onClick()}><img src="images/no-knap.png"/></a>
           <a className="rank--buttons-button" onClick={() => this._onClick(true)}><img src="images/yes-knap.png"/></a>
         </div>
-        <span className="rank--page-infotxt p centered">Skab din egen profil ved at vælge mindst 5 bøger, du godt kan lide.</span>
+        <span className="rank--page-infotxt p centered">{infotext}</span>
       </div>
     );
   },
