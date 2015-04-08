@@ -8,16 +8,16 @@ var ResultItem = require('./RankSearchResultItem.react');
 var SearchResult = React.createClass({
   didScrollView: false,
 
-  componentDidMount: function(){
+  componentDidMount: function() {
     "use strict";
     this.didScrollView = false;
   },
 
-  componentDidUpdate: function(){
+  componentDidUpdate: function() {
     "use strict";
-    var scrollYdest = 110;
+    var scrollYdest = this._getSearchFieldPosition() - 10;
     this.didScrollView = (!(!this.didScrollView && window.scrollY < scrollYdest));
-    if(!this.didScrollView && !_.isEmpty(this.props.normalSearchResult) && !_.isEmpty(this.props.rankedSearchResult)){
+    if(!this.didScrollView && !_.isEmpty(this.props.normalSearchResult) && !_.isEmpty(this.props.rankedSearchResult)) {
       window.scrollTo(0, scrollYdest);
       this.didScrollView = true;
     }
@@ -32,7 +32,7 @@ var SearchResult = React.createClass({
     let rankedCount = this.props.rankedSearchResult.length;
     let normalCount = this.props.normalSearchResult.length;
 
-    if(_.isEmpty(this.props.rankedSearchResult)){
+    if(_.isEmpty(this.props.rankedSearchResult)) {
       return this._emptyResultTemplate();
     }
 
@@ -83,6 +83,14 @@ var SearchResult = React.createClass({
         <h4>Ingen resultater fundet</h4>
       </div>
     );
+  },
+
+  _getSearchFieldPosition: function() {
+    "use strict";
+    let bodyRect = document.body.getBoundingClientRect();
+    let element = document.getElementsByClassName('searchfield-input')[0];
+    let elemRect = element.getBoundingClientRect();
+    return elemRect.top - bodyRect.top;
   }
 });
 
