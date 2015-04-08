@@ -24,7 +24,8 @@ var RankProfile = React.createClass({
 
     var searchLink = '';
     if(!currentQuestion) {
-      searchLink = <a href='/search'>Videre til søgning &#8594;</a>
+      window.location = "/recommendations";
+      return;
     }
 
     return (

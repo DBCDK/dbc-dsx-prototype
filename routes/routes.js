@@ -18,6 +18,10 @@ router.get(['/search', '/search/*'], (req, res) => {
   res.render('search');
 });
 
+router.get(['/recommendations', '/recommendations/*'], (req, res) => {
+  res.render('recommendations');
+});
+
 // Fallback route : redirect non-targeted routes to /search/
 router.get('*', (req, res) => res.redirect('/'));
 

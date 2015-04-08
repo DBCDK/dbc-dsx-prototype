@@ -21,6 +21,7 @@ module.exports = {
   entry: {
     admin: './client/entry/admin.entry.js',
     rank: './client/entry/rank.entry.js',
+    recommendations: './client/entry/recommendations.entry.js',
     search: './client/entry/search.entry.js'
   },
   output: {
