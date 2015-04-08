@@ -30,10 +30,14 @@
   line-height: 1.7rem;
   font-weight: bold;
   padding: 0 10px;
+  max-height: 58px;
+  overflow: hidden;
 }
 
 .rank--question-card-crator {
   font-size: 1rem;
   font-weight: 200;
   padding: 0 10px;
+  max-height: 25px;
+  overflow: hidden;
 }

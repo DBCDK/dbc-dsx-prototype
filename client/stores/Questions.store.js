@@ -21,7 +21,7 @@ var _store = {
       ],
       "abstract": null,
       "selected": true
-    }/*,
+    },
     {
       "id": "870970-basis:29541256",
       "title": "førsteelskeren",
@@ -120,7 +120,7 @@ var _store = {
       ],
       "abstract": null,
       "selected": true
-    }*/
+    }
   ],
   currentQuestion: 0
 };
