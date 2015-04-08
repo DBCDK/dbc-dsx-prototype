@@ -41,7 +41,9 @@ var SearchResult = React.createClass({
     let items = [];
     searchResult.forEach((item, key) => {
       let creator = _.startCase(item.creator[0]);
-      let title = _.startCase(item.title);
+      let title = item.title.charAt(0).toUpperCase() + item.title.slice(1);
+      title = title.replace(/-/gi, ' ');
+
       let rankedKey = item.rankedKey;
       let normalKey = item.normalKey;
       items.push(

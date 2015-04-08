@@ -4,10 +4,7 @@ var _ = require('lodash'),
   DsxStore = require('../stores/Dsx.store'),
   Actions = require('../actions/Actions'),
   Loader = require('react-loader'),
-  DsxRank = require('./DsxRank.react'),
-  DsxList = require('./DsxList.react'),
-  DsxListItem = require('./DsxListItem.react'),
-  DsxRecommendations = require('./DsxRecommendations.react');
+  DsxRank = require('./DsxRank.react');
 
 var DsxRankPage = React.createClass({
   mixins: [Reflux.ListenerMixin],

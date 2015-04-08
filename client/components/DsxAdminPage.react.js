@@ -7,7 +7,6 @@ var _ = require('lodash'),
   SearchField = require('./SearchField.react'),
   DsxList = require('./DsxList.react'),
   DsxListItem = require('./DsxListItem.react'),
-  DsxRecommendations = require('./DsxRecommendations.react'),
   DsxSelected = require('./DsxSelected.react');
 
 var DsxAdminModule = React.createClass({

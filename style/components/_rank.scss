@@ -1,10 +1,11 @@
 .rank--question-card {
   border: 1px solid $borderColor;
-  border-radius: 2px;
+  border-radius: 15px;
   background-color: #FFF;
   width: 80%;
   margin: 0 auto;
   display: block;
+  height: 400px;
 }
 
 .rank--question-card-img{
@@ -22,4 +23,17 @@
 .rank--buttons-button {
   display: inline-block;
   max-width: 80px;
+}
+
+.rank--question-card-title {
+  font-size: 1.5rem;
+  line-height: 1.7rem;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.rank--question-card-crator {
+  font-size: 1rem;
+  font-weight: 200;
+  padding: 0 10px;
 }
