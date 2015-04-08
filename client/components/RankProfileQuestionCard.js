@@ -26,7 +26,7 @@ var Question = React.createClass({
     let covers = question.covers;
 
     if(covers) {
-      cover = (covers.length == 0) ? 'images/dummy.jpg' : covers[3].url;
+      cover = (covers.length == 0) ? 'images/image-missing.png' : covers[3].url;
     }
 
     let title = question.title.charAt(0).toUpperCase() + question.title.slice(1);

@@ -30,6 +30,9 @@ var SearchPage = React.createClass({
     return (
       <div className='search--pagewrapper'>
         <div className='search--wrapper'>
+          <div className="search--close-btn">
+            <a href="/"><img src="images/close-knap.png" /></a>
+          </div>
           <h2>Søgning</h2>
 
           <p>Vi rankerer resultatet af søgningen ud fra de materialer, du har udvalgt</p>
