@@ -1,5 +1,5 @@
 var React = require('react');
-var Actions  = require('../actions/Actions');
+var Actions = require('../actions/Actions');
 var SearchField = require('./SearchField.react');
 var Loader = require('react-loader');
 var DsxList = require('./DsxList.react');
@@ -14,25 +14,28 @@ var DsxRank = React.createClass({
   },
 
   _onSubmit: function(value) {
-      Actions.rank(value, JSON.parse(this.state.list));
+    Actions.rank(value, JSON.parse(this.state.list));
   },
 
   _updateTextarea: function(event) {
-      this.setState({
-        list : event.target.value
-      });
+    this.setState({
+      list: event.target.value
+    });
   },
 
-  render: function(){
+  render: function() {
     var store = this.props.store;
     var list = this.state.list;
     return (
       <div className="list">
-        <textarea value={list} onChange={this._updateTextarea} />
-        <SearchField initialValue="" submit={this._onSubmit} button={true} buttonValue='Søg' />
-      <Loader loaded={!store.pending}>
-        <DsxList itemType={DsxListItem} listItems={store.result} />
-      </Loader>
+        <div className="large-12 columns">
+          <textarea value={list} onChange={this._updateTextarea}/>
+        </div>
+
+        <SearchField initialValue="" submit={this._onSubmit} button={true} buttonValue='Søg'/>
+        <Loader loaded={!store.pending}>
+          <DsxList itemType={DsxListItem} listItems={store.result}/>
+        </Loader>
       </div>
 
     );

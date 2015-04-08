@@ -44,7 +44,7 @@ var _store = {
       "abstract": null,
       "selected": true
     },
-    {
+    /*{
       "id": "870970-basis:22757636",
       "title": "fermats-store-sætning",
       "creator": [
@@ -205,7 +205,7 @@ var _store = {
       ],
       "abstract": null,
       "selected": true
-    }
+    }*/
   ],
   currentQuestion: 0
 };

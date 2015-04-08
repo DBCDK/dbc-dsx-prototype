@@ -12,7 +12,7 @@ var SearchField = React.createClass({
   },
   render: function() {
     let button = (this.props.button) ? (<input onClick={this._onClick} className='searchfield-button button postfix' value={this.props.buttonValue} type='button'/>) : '';
-    let columns = this.props.columns || 'large-10 columns';
+    let columns = this.props.columns || 'small-10 columns';
     return (
       <div className='searchfield'>
         <div className={columns}>

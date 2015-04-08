@@ -19,6 +19,7 @@ var RankProfile = React.createClass({
   },
 
   render: function() {
+    "use strict";
     var currentQuestion = this._getCurrentQuestion();
 
     var searchLink = '';
