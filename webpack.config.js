@@ -20,7 +20,7 @@ var noErrors = new webpack.NoErrorsPlugin();
 module.exports = {
   entry: {
     admin: './client/entry/admin.entry.js',
-    rank: './client/entry/rank.entry.js',
+    profile: './client/entry/profile.entry.js',
     recommendations: './client/entry/recommendations.entry.js',
     search: './client/entry/search.entry.js'
   },

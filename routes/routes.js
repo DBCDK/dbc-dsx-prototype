@@ -10,8 +10,8 @@ router.get(['/admin', '/admin/*'], (req, res) => {
  res.render('admin');
 });
 
-router.get(['/rank', '/rank/*'], (req, res) => {
-  res.render('rank');
+router.get(['/profile', '/profile/*'], (req, res) => {
+  res.render('profile');
 });
 
 router.get(['/search', '/search/*'], (req, res) => {
