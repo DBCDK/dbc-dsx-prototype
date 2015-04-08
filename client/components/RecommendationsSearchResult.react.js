@@ -10,9 +10,8 @@ var RecommendationsSearchResult = React.createClass({
     let items = [];
 
     result.forEach(function(value){
-      console.log(value);
       let title = that._capitalizeFirstWord(value.title);
-      let creator = that._capitalizeEachWord(value.creator[0]); //that._capitalizeFirstWord(value.creator[0]);
+      let creator = that._capitalizeEachWord(value.creator[0]);
 
       items.push((
         <div className='search--result-item clearfix'>
@@ -29,8 +28,6 @@ var RecommendationsSearchResult = React.createClass({
 
   render: function() {
     "use strict";
-    console.log(this.props);
-
     let loadingIndicator = (this.props.pending) ? (<img src='images/pacman.gif'/>) : '';
     let result = (this.props.pending) ? '' : this._getItems();
 
