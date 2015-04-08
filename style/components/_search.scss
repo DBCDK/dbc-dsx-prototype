@@ -6,13 +6,13 @@
 
 .search--result {
   p {
-    color: $inactive;
+    color: $textGrey;
   }
 }
 
 .search--rankpicker {
   a {
-    color: $inactive;
+    color: $textGrey;
     padding: 0 20px;
     &.active {
       color: $rankedGreen;
@@ -26,9 +26,10 @@
 
 .search--result-item {
   padding: 10px;
-  background-color: #FFF;
+  background-color: $boxBg;
   border: 1px solid $borderColorLight;
-  border-radius: 2px;
+  //border-radius: 2px;
+  border-radius: $borderRadius;
   display: block;
   min-height: 60px;
   margin-top: 10px;
@@ -44,7 +45,8 @@
 .search--result-item-matinfo {
   text-align: left;
   margin-right: 10px;
-  border-radius: 3px;
+  //border-radius: 3px;
+  border-radius: $borderRadius;
   padding: 5px;
 }
 
