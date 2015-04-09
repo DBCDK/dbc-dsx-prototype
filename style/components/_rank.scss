@@ -30,12 +30,10 @@
 }
 
 .rank--question-card-title {
-  font-size: 1.3rem;
-  line-height: 1.7rem;
+  font-size: 1rem;
   font-weight: bold;
   padding: 0 10px;
-  min-height: 30px;
-  max-height: 58px;
+  max-height: 50px;
   overflow: hidden;
 }
 
@@ -45,6 +43,7 @@
   padding: 0 10px;
   max-height: 25px;
   overflow: hidden;
+  margin-bottom: 5px;
 }
 
 .rank--buttons-button {
