@@ -31,7 +31,6 @@ var Question = React.createClass({
 
     let title = question.title.charAt(0).toUpperCase() + question.title.slice(1);
     title = title.replace(/-/gi, ' ');
-    title = "Denne teskt vil gå i to linjer. Måske hvis den er lidt længere";
     let creator = _.startCase(question.creator[0]);
 
     return (
