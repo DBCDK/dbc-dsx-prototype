@@ -34,16 +34,18 @@ var Question = React.createClass({
     let creator = _.startCase(question.creator[0]);
 
     return (
-      <div className="rank--question-card">
-        <div className="rank--question-card-img">
-          <img className="image" src={cover}/>
-        </div>
-        <div className="rank--question-card-title">
-          <span>{title}</span>
-        </div>
+      <div className="rank--question-card-wrapper">
+        <div className="rank--question-card">
+          <div className="rank--question-card-img">
+            <img className="image" src={cover}/>
+          </div>
+          <div className="rank--question-card-title">
+            <span>{title}</span>
+          </div>
 
-        <div className="rank--question-card-crator">
-          <span>{creator}</span>
+          <div className="rank--question-card-creator">
+            <span>{creator}</span>
+          </div>
         </div>
       </div>
     );
