@@ -46,6 +46,5 @@ module.exports = {
     definePlugin,
     commonsPlugin
     //noErrors
-  ],
-  devtool: 'inline-source-map'
+  ]
 };
