@@ -13,6 +13,8 @@ var routes = require('./routes/routes');
 
 //var authentication = require('./lib/authentication/authentication');
 
+console.log(process.versions);
+
 // Setup express env
 app.set('port', process.env.PORT || 3000);
 
