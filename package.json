@@ -30,6 +30,7 @@
     "hammerjs": "^2.0.4",
     "jsonpath-object-transform": "https://github.com/vibjerg/jsonpath-object-transform/archive/1.0.5.tar.gz",
     "lodash": "^3.5.0",
+    "newrelic": "^1.18.4",
     "node-rest-client": "^1.4.4",
     "react": "^0.13.1",
     "react-loader": "^1.2.0",

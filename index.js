@@ -1,5 +1,6 @@
 // Convert es6 to es5
 require("babel/register");
+require('newrelic');
 
 var express = require('express');
 var io = require('socket.io');
