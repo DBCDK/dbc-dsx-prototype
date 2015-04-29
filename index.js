@@ -1,7 +1,8 @@
 // Convert es6 to es5
 require("babel/register");
-require('newrelic');
 
+require('newrelic');
+var newRelicHSHeader = require('./newrelic_config').dsx.js_header;
 var express = require('express');
 var io = require('socket.io');
 var path = require('path');
@@ -22,8 +23,10 @@ services.init(socket);
 
 // Setup view engine
 var hbs = exphbs.create({
-  defaultLayout: 'main'
-  //helpers: handlebars_helpers
+  defaultLayout: 'main',
+  helpers: {
+    newRelicJSHeader: newRelicHSHeader
+  }
 });
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', hbs.engine);
