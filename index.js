@@ -25,6 +25,7 @@ services.init(socket);
 var hbs = exphbs.create({
   defaultLayout: 'main',
   helpers: {
+    //should probably only be used when running in production env so local dev trafic will be ignored
     newRelicJSHeader: newRelicHSHeader
   }
 });
