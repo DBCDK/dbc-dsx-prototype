@@ -5,12 +5,16 @@
 *.iml
 
 # ===============
+# VS CODE GENERATED
+# ===============
+.vscode
+
+# ===============
 # OTHER STUFF
 # ===============
 node_modules
 public
 config.js
-newrelic_config.js
 *.log
 
 
